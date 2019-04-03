@@ -1,57 +1,37 @@
-..
-  Technote content.
-
-  See https://developer.lsst.io/restructuredtext/style.html
-  for a guide to reStructuredText writing.
-
-  Do not put the title, authors or other metadata in this document;
-  those are automatically added.
-
-  Use the following syntax for sections:
-
-  Sections
-  ========
-
-  and
-
-  Subsections
-  -----------
-
-  and
-
-  Subsubsections
-  ^^^^^^^^^^^^^^
-
-  To add images, add the image file (png, svg or jpeg preferred) to the
-  _static/ directory. The reST syntax for adding the image is
-
-  .. figure:: /_static/filename.ext
-     :name: fig-label
-
-     Caption text.
-
-   Run: ``make html`` and ``open _build/html/index.html`` to preview your work.
-   See the README at https://github.com/lsst-sqre/lsst-technote-bootstrap or
-   this repo's README for more info.
-
-   Feel free to delete this instructional comment.
-
 :tocdepth: 1
 
 .. Please do not modify tocdepth; will be fixed when a new Sphinx theme is shipped.
 
 .. sectnum::
 
-.. TODO: Delete the note below before merging new content to the master branch.
+How To
+======
+
+Clean up **All** Job Workspaces
+-------------------------------
+
+Leeroy runs the `jenkins-node-cleanup`_ job periodically in order to
+automatically clean up job workspaces when the node on which they are located
+drops below a set free space threshold. In the event that there is stale state
+and/or corruption of workspaces, there is a job parameter named
+``FORCE_CLEANUP`` that when set to ``true``, will force workspaces on a node to
+be cleaned up regardless of the remaining free space.
 
 .. note::
 
-   **This technote is not yet published.**
+   This is a big hammer. Use it wisely.
 
-   Leeroy Jenkins administrative rules and procedures.
+.. note::
 
-.. Add content here.
-.. Do not include the document title (it's automatically added from metadata.yaml).
+   `jenkins-node-cleanup`_ does not remove the workspace of running builds.  As an example, if a ``stack-os-matrix`` build is running when `jenkins-node-cleanup`_ is triggered, even with ``FORCE_CLEANUP==true``, the ``stack-os-matrix`` workspaces on active node(s) will not be disturbed.
+
+.. figure:: /_static/jenkins-node-cleanup_force_cleanup.png
+   :name: fig-jenkins-node-cleanup_force_cleanup
+   :alt: Jenkins screenshot
+
+   Example of triggering a build with ``FORCE_CLEANUP==true``:
+
+.. _jenkins-node-cleanup: https://ci.lsst.codes/blue/organizations/jenkins/sqre%2Finfra%2Fjenkins-node-cleanup/activity
 
 .. .. rubric:: References
 
