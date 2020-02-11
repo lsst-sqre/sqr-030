@@ -33,6 +33,26 @@ be cleaned up regardless of the remaining free space.
 
 .. _jenkins-node-cleanup: https://ci.lsst.codes/blue/organizations/jenkins/sqre%2Finfra%2Fjenkins-node-cleanup/activity
 
+Disable OSX jobs
+----------------
+
+To disable OSX jobs, you must comment out sections of `build_matrix.yaml`_.
+Note that there are two secctions that need comments.
+Make sure not to miss commenting out the tarball builds as well.
+
+.. _build_matrix.yaml: https://github.com/lsst-dm/jenkins-dm-jobs/blob/master/etc/scipipe/build_matrix.yaml
+
+Make a branch, then you can make your edits.
+File a PR, and when approved self merge or the reviewer can do so.
+
+See the following screenshot from an example `PR`_.
+
+.. figure:: /_static/disable_osx_diff.png
+   :name: disable_osx_diff
+   :alt: PR screenshot
+
+   Example diff of a PR for turning off OSX builds.
+
 .. .. rubric:: References
 
 .. Make in-text citations with: :cite:`bibkey`.
