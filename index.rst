@@ -53,7 +53,7 @@ See the following screenshot from an example `PR`_.
 
    Example diff of a PR for turning off OSX builds.
 
-.._PR: https://github.com/lsst-dm/jenkins-dm-jobs/pull/624
+.. _PR: https://github.com/lsst-dm/jenkins-dm-jobs/pull/624
 
 .. .. rubric:: References
 
