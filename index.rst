@@ -53,7 +53,18 @@ See the following screenshot from an example `PR`_.
 
    Example diff of a PR for turning off OSX builds.
 
-.._PR: https://github.com/lsst-dm/jenkins-dm-jobs/pull/624
+.. _PR: https://github.com/lsst-dm/jenkins-dm-jobs/pull/624
+
+Update Conda Mirror
+-------------------
+
+From time to time the upstream conda repos are in an consistent state during
+the LSST conda mirror update process.  When this happens, the `update-cmirror`_
+job should be manually triggered until the LSST mirror is in a consistent
+state.  This may take more than once as it is dependent upon the upstream repos
+themselves first being fixed.
+
+.. _update-cmirror: https://ci.lsst.codes/blue/organizations/jenkins/sqre%2Finfra%2Fupdate-cmirror/activity
 
 .. .. rubric:: References
 
